@@ -1,14 +1,14 @@
 import { Button } from "@mui/material";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { useAppThemeContext } from "../shared/contexts/ThemeContext";
+import { useDrawerContext } from "../shared/contexts/DrawerContext";
 
 const AppRoutes = () => {
 
-  const { toggleTheme } = useAppThemeContext()
+  const { toggleDrawerOpen } = useDrawerContext()
 
   return (
     <Routes>
-      <Route path="/home" element={<Button variant="contained" color="primary" onClick={toggleTheme}>ToggleTheme</Button>} />
+      <Route path="/home" element={<Button variant="contained" color="primary" onClick={toggleDrawerOpen}>Toggle Drawer</Button>} />
       <Route path="*" element={<Navigate to="/home" />} />  {/* O asterisco significa que se nenhuma rota for atendida, haverá um redirecionamento para a página 'Home'*/}
     </Routes>
   )
