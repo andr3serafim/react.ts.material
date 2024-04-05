@@ -5,16 +5,18 @@ import LayoutBaseDePagina from "../../shared/layouts/LayoutBaseDePagina"
 const Dashboard = () => {
 
   return (
-    <LayoutBaseDePagina
-      titulo="Dashboard"
-      barraDeFerramentas={(
-        <FerramentasDeDetalhe
-          mostrarBotaoSalvarEFechar
-        />
-      )}
-    >
-      Testando
-    </LayoutBaseDePagina>
+    <div>
+      <LayoutBaseDePagina
+        titulo="Dashboard"
+        barraDeFerramentas={(
+          <FerramentasDeDetalhe
+            mostrarBotaoSalvarEFechar
+          />
+        )}
+      >
+        Testando
+      </LayoutBaseDePagina>
+    </div>
   )
 }
 

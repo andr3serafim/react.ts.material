@@ -84,7 +84,7 @@ const FerramentasDeDetalhe: React.FC<FerramentasDeDetalhePropsTypes> = ({
             ><Typography
                 variant='button'
                 noWrap
-            >Salvar e voltar</Typography></Button>}
+            >Salvar e fechar</Typography></Button>}
 
             {(mostrarBotaoSalvarEFecharCarregando && !smDown && !mdDown) && (<Skeleton width={110} height={60} />)}
 
@@ -112,7 +112,7 @@ const FerramentasDeDetalhe: React.FC<FerramentasDeDetalhePropsTypes> = ({
             ><Typography
                 variant='button'
                 noWrap
-            >Novo</Typography></Button>}
+            >{textoBotaoNovo}</Typography></Button>}
 
             {(mostrarBotaoNovoCarregando && !smDown) && (<Skeleton width={110} height={60} />)}
 

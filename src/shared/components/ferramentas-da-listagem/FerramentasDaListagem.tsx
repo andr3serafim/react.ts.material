@@ -1,6 +1,8 @@
 import { Add } from "@mui/icons-material";
 import { Box, Button, Paper, TextField, useTheme } from "@mui/material"
 
+import { Environment } from "../../environment/Environment";
+
 type FerramentasDaListagemPropsTypes = {
   textoDaBusca?: string;
   mostrarInputBusca?: boolean;
@@ -38,7 +40,7 @@ const FerramentasDaListagem: React.FC<FerramentasDaListagemPropsTypes> = ({
           size="small"
           value={textoDaBusca}
           onChange={(e) => aoMudarTextoDeBusca?.(e.target.value)} //só vai executar a função se for diferente de undefined.
-          placeholder="Pesquisar..."
+          placeholder={Environment.INPUT_DE_BUSCA}
         />
       )}
 
@@ -58,4 +60,4 @@ const FerramentasDaListagem: React.FC<FerramentasDaListagemPropsTypes> = ({
   )
 }
 
-export default FerramentasDaListagem
+export default FerramentasDaListagem;
