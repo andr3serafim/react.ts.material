@@ -4,6 +4,7 @@ import { useEffect } from "react";
 
 import Dashboard from "../pages/dashboard/Dashboard";
 import { ListagemDePessoas } from "../pages/pessoas/ListagemDePessoas";
+import DetalheDePessoa from "../pages/pessoas/DetalheDePessoa";
 
 const AppRoutes = () => {
 
@@ -28,6 +29,7 @@ const AppRoutes = () => {
     <Routes>
       <Route path="/home" element={<Dashboard />} />
       <Route path="/pessoas" element={<ListagemDePessoas />} />
+      <Route path="/pessoas/detalhe/:id" element={<DetalheDePessoa />} />
       <Route path="*" element={<Navigate to="/home" />} />  {/* O asterisco significa que se nenhuma rota for atendida, haverá um redirecionamento para a página 'Home'*/}
     </Routes>
   )
