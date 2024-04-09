@@ -1,63 +1,57 @@
-import { Add } from "@mui/icons-material";
-import { Box, Button, Paper, TextField, useTheme } from "@mui/material"
+import { Box, Button, Icon, Paper, TextField, useTheme } from '@mui/material';
+import { Environment } from '../../environment/Environment';
+import { Add } from '@mui/icons-material';
 
-import { Environment } from "../../environment/Environment";
 
-type FerramentasDaListagemPropsTypes = {
+interface IFerramentasDaListagemProps {
   textoDaBusca?: string;
-  mostrarInputBusca?: boolean;
-  aoMudarTextoDeBusca?: (novoTexto: string) => void;
   textoBotaoNovo?: string;
   mostrarBotaoNovo?: boolean;
+  mostrarInputBusca?: boolean;
   aoClicarEmNovo?: () => void;
+  aoMudarTextoDeBusca?: (novoTexto: string) => void;
 }
-
-const FerramentasDaListagem: React.FC<FerramentasDaListagemPropsTypes> = ({
+export const FerramentasDaListagem: React.FC<IFerramentasDaListagemProps> = ({
   textoDaBusca = '',
-  aoMudarTextoDeBusca,
-  mostrarInputBusca = false,
-  aoClicarEmNovo,
   textoBotaoNovo = 'Novo',
   mostrarBotaoNovo = true,
+  mostrarInputBusca = false,
+  aoClicarEmNovo,
+  aoMudarTextoDeBusca,
 }) => {
-
   const theme = useTheme();
 
   return (
-
     <Box
-      height={theme.spacing(5)} // altura do box
       gap={1}
       marginX={1}
       padding={1}
       paddingX={2}
       display="flex"
-      justifyContent="space-between"
-      component={Paper}>
-
-      {(mostrarInputBusca && // && significa 'se for true prossiga'
+      alignItems="center"
+      height={theme.spacing(5)}
+      component={Paper}
+    >
+      {mostrarInputBusca && (
         <TextField
           size="small"
           value={textoDaBusca}
-          onChange={(e) => aoMudarTextoDeBusca?.(e.target.value)} //só vai executar a função se for diferente de undefined.
           placeholder={Environment.INPUT_DE_BUSCA}
+          onChange={(e) => aoMudarTextoDeBusca?.(e.target.value)}
         />
       )}
 
-      <Box>
-        {mostrarBotaoNovo && <Button
-          variant="contained"
-          color="primary"
-          disableElevation
-          onClick={aoClicarEmNovo}
-          endIcon={<Add />}
-        >
-          {textoBotaoNovo}
-        </Button>}
+      <Box flex={1} display="flex" justifyContent="end">
+        {mostrarBotaoNovo && (
+          <Button
+            color='primary'
+            disableElevation
+            variant='contained'
+            onClick={aoClicarEmNovo}
+            endIcon={<Add/>}
+          >{textoBotaoNovo}</Button>
+        )}
       </Box>
-
     </Box>
-  )
-}
-
-export default FerramentasDaListagem;
+  );
+};

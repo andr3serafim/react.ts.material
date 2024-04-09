@@ -3,7 +3,7 @@ import { useDrawerContext } from "../shared/contexts/DrawerContext";
 import { useEffect } from "react";
 
 import Dashboard from "../pages/dashboard/Dashboard";
-import ListagemDeCidades from "../pages/cidades/ListagemDeCidades";
+import { ListagemDePessoas } from "../pages/pessoas/ListagemDePessoas";
 
 const AppRoutes = () => {
 
@@ -17,17 +17,17 @@ const AppRoutes = () => {
         label: "Home"
       },
       {
-        icon: "city",
-        path: "/cidades",
-        label: "Cidades"
+        icon: "people",
+        path: "/pessoas",
+        label: "Pessoas"
       }
     ])
   }, [])
 
   return (
     <Routes>
-      <Route path="/home" element={<Dashboard/>} />
-      <Route path="/cidades" element={<ListagemDeCidades/>} />
+      <Route path="/home" element={<Dashboard />} />
+      <Route path="/pessoas" element={<ListagemDePessoas />} />
       <Route path="*" element={<Navigate to="/home" />} />  {/* O asterisco significa que se nenhuma rota for atendida, haverá um redirecionamento para a página 'Home'*/}
     </Routes>
   )

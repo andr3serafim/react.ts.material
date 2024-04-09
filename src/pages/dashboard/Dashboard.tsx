@@ -10,14 +10,18 @@ const Dashboard = () => {
         titulo="Dashboard"
         barraDeFerramentas={(
           <FerramentasDeDetalhe
-            mostrarBotaoSalvarEFechar
+          mostrarBotaoNovo
+          mostrarBotaoVoltar={false}
+          mostrarBotaoSalvarEFechar
+          mostrarBotaoSalvarEFecharCarregando
+
           />
         )}
       >
         Testando
       </LayoutBaseDePagina>
     </div>
-  )
-}
+  );
+};
 
 export default Dashboard;
