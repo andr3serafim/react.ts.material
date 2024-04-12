@@ -2,9 +2,11 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { useDrawerContext } from "../shared/contexts/DrawerContext";
 import { useEffect } from "react";
 
-import Dashboard from "../pages/dashboard/Dashboard";
 import { ListagemDePessoas } from "../pages/pessoas/ListagemDePessoas";
-import DetalheDePessoa from "../pages/pessoas/DetalheDePessoa";
+import { DetalheDePessoa } from "../pages/pessoas/DetalheDePessoa";
+import { ListagemDeCidades } from "../pages/cidades/ListagemDeCidades";
+import { DetalheDeCidades } from "../pages/cidades/DetalheDeCidade";
+import Dashboard from "../pages/dashboard/Dashboard";
 
 const AppRoutes = () => {
 
@@ -21,6 +23,11 @@ const AppRoutes = () => {
         icon: "people",
         path: "/pessoas",
         label: "Pessoas"
+      },
+      {
+        icon: "city",
+        path: "/cidades",
+        label: "Cidades"
       }
     ])
   }, [])
@@ -30,6 +37,8 @@ const AppRoutes = () => {
       <Route path="/home" element={<Dashboard />} />
       <Route path="/pessoas" element={<ListagemDePessoas />} />
       <Route path="/pessoas/detalhe/:id" element={<DetalheDePessoa />} />
+      <Route path="/cidades" element={<ListagemDeCidades />} />
+      <Route path="/cidades/detalhe/:id" element={<DetalheDeCidades />} />
       <Route path="*" element={<Navigate to="/home" />} />  {/* O asterisco significa que se nenhuma rota for atendida, haverá um redirecionamento para a página 'Home'*/}
     </Routes>
   )
